@@ -7,7 +7,7 @@
     <title>Document</title>
 </head>
 <body>
-    <table>
+    <table id="mytable">
         <thead>
             <tr>
                 <td>Question No</td>
@@ -18,29 +18,15 @@
         <tbody>
             <tr>
                 <td>1</td>
-                <td>20</td>
-                <td><input type="number" name="marks1" id="marks1" /></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>20</td>
-                <td><input type="number" name="marks2" id="marks2" /></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>20</td>
-                <td><input type="number" name="marks3" id="marks3" /></td>
-            </tr>
-            <tr>
-                <td>1</td>
-                <td>20</td>
-                <td><input type="number" name="marks4" id="marks4" /></td>
+                <td>100</td>
+                <td><input type="number" name="marks1" id="marks0" max ="99"/></td>
             </tr>
         </tbody>
     </table>
 
     <button onclick="handleSubmit()">Submit</button>
     <button onclick="handleClear()">Clear</button>
+    <button onclick="handleRow()">Add Row</button>
 
     <p id="output"></p>
 

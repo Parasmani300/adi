@@ -1,17 +1,41 @@
 function handleSubmit()
 {
-    var n1 = document.getElementById("marks1").value;
-    var n2 = document.getElementById("marks2").value;
-    var n3 = document.getElementById("marks3").value;
-    var n4 = document.getElementById("marks4").value;
+    var rcount = document.getElementById("mytable").rows.length;
+    var n = 0;
+    for(var i = 0;i<rcount-1;i++){
+        var id = "marks" + i
+        console.log(id);
+        var temp = document.getElementById(id).value;
+        n = n + parseInt(temp);
+    }
 
-    var n = parseInt(n1) + parseInt(n2) + parseInt(n3) + parseInt(n4); 
-    var perc = (n/400)*100
+    var perc = (n/rcount);
     document.getElementById("output").innerHTML = "Percentage = " + perc;
 }
 
 function handleClear()
 {
-    document.getElementById("marks").value = "";
+    var rcount = document.getElementById("mytable").rows.length;
+    for(var i = 0;i<rcount;i++){
+        var id = "marks" + i
+        document.getElementById(id).value = "";
+
+    }
     document.getElementById("output").innerHTML = "";
+}
+
+function handleRow()
+{
+    var rcount = document.getElementById("mytable").rows.length;
+    var table = document.getElementById("mytable");
+
+    var row = table.insertRow(rcount);
+    var cell1 = row.insertCell(0);
+    var cell2 = row.insertCell(1);
+    var cell3 = row.insertCell(2);
+
+    cell1.innerHTML = rcount;
+    cell2.innerHTML = "100";
+    cell3.innerHTML = `<input type="number" name='marks${rcount-1}' id='marks${rcount-1}' max="99" />`
+
 }
